@@ -153,7 +153,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .placeholder { font-family: var(--font-mono); font-size: .8rem; background: var(--chip); padding: 1px 6px; border-radius: 3px; color: var(--ink); }
 
 abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; letter-spacing: .04em; }
-.toc { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 24px; }
+.toc { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; max-width: 760px; }
+.toc li.g-druck, .toc li.g-ai { grid-column: 1; }
+@media (max-width: 560px) { .toc { grid-template-columns: 1fr; } }
 .toc li { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding-top: 8px; }
 .toc a { font-weight: 600; text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
