@@ -159,6 +159,13 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
 .toc a:hover { text-decoration: underline; }
 .toc span { color: var(--muted); font-size: .88rem; }
 .project { scroll-margin-top: 16px; }
+.g-druck { --g: var(--red); } .g-ai { --g: var(--ink); } .g-hockey { --g: var(--blue); }
+.group[class*="g-"] .group-head { border-bottom-color: var(--g); }
+.group[class*="g-"] .group-head h2 { color: var(--g); }
+.group[class*="g-"] .body li::marker { color: var(--g); }
+.group[class*="g-"] .state:not(.hold)::before { background: var(--g); }
+.toc li[class*="g-"] { border-top: 3px solid var(--g); }
+.toc li[class*="g-"] a { color: var(--g); }
 @media (max-width: 760px) {
   .project { grid-template-columns: 1fr; gap: 16px; }
   .facts { grid-template-columns: 1fr; gap: 18px; }
@@ -182,18 +189,18 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
       <a href="https://github.com/cappy0815" target="_blank" rel="noopener">GitHub · cappy0815</a>
     </nav>
     <ul class="toc" aria-label="Übersicht">
-      <li><a href="#bambuwatch">BambuWatch</a><span>Drucker-Livebild</span></li>
-      <li><a href="#claude-limits">Claude Limits</a><span>KI-Kontingent</span></li>
-      <li><a href="#liveticker">NRW Hockey Liveticker</a><span>Live-Ergebnisse</span></li>
-      <li><a href="#egrep-notes">eGrep Notes</a><span>Spielnotizen</span></li>
-      <li><a href="#soundboard">Soundboard</a><span>Hallenmusik</span></li>
+      <li class="g-druck"><a href="#bambuwatch">BambuWatch</a><span>3D-Druck · Drucker-Livebild</span></li>
+      <li class="g-ai"><a href="#claude-limits">Claude Limits</a><span>AI · KI-Kontingent</span></li>
+      <li class="g-hockey"><a href="#liveticker">NRW Hockey Liveticker</a><span>Eishockey · Live-Ergebnisse</span></li>
+      <li class="g-hockey"><a href="#egrep-notes">eGrep Notes</a><span>Eishockey · Spielnotizen</span></li>
+      <li class="g-hockey"><a href="#soundboard">Soundboard</a><span>Eishockey · Hallenmusik</span></li>
     </ul>
   </header>
 
-  <section class="group" aria-labelledby="g-werkstatt">
+  <section class="group g-druck" aria-labelledby="g-druck">
     <div class="group-head">
-      <h2 id="g-werkstatt">Werkstatt</h2>
-      <p>Windows-Tools für 3D-Druck und KI</p>
+      <h2 id="g-druck">3D-Druck</h2>
+      <p>Windows-Tool für Bambu-Lab-Drucker</p>
     </div>
 
     <article class="project" id="bambuwatch">
@@ -217,6 +224,14 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
       </div>
     </article>
 
+    </section>
+
+  <section class="group g-ai" aria-labelledby="g-ai">
+    <div class="group-head">
+      <h2 id="g-ai">AI</h2>
+      <p>Windows-Tool rund um Claude</p>
+    </div>
+
     <article class="project" id="claude-limits">
       <div class="meta">
         <h3>Claude Limits</h3>
@@ -239,7 +254,7 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
     </article>
   </section>
 
-  <section class="group" aria-labelledby="g-eishockey">
+  <section class="group g-hockey" aria-labelledby="g-eishockey">
     <div class="group-head">
       <h2 id="g-eishockey">Eishockey</h2>
       <p>Für Halle, Kabine und Tribüne</p>
