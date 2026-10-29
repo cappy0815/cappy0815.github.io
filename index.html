@@ -154,8 +154,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
 abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; letter-spacing: .04em; }
 .toc { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; max-width: 760px; }
-.toc li.g-druck, .toc li.g-ai { grid-column: 1; }
-@media (max-width: 560px) { .toc { grid-template-columns: 1fr; } }
+.toc li.g-druck { grid-row: 1; grid-column: 1; } .toc li.g-ai { grid-row: 2; grid-column: 1; } .toc li.g-hockey { grid-row: 3; }
+@media (max-width: 560px) { .toc { grid-template-columns: 1fr; } .toc li[class*="g-"] { grid-row: auto; } }
+.legal { max-width: 70ch; color: var(--muted); font-size: .93rem; padding-top: 18px; }
+.legal p { margin: 0 0 10px; }
 .toc li { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding-top: 8px; }
 .toc a { font-weight: 600; text-decoration: none; }
 .toc a:hover { text-decoration: underline; }
@@ -346,11 +348,21 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
     </div>
   </section>
 
+  <section class="group" aria-labelledby="g-haftung">
+    <div class="group-head">
+      <h2 id="g-haftung">Haftungsausschluss</h2>
+    </div>
+    <div class="legal">
+      <p>Alle Programme und Apps auf dieser Seite sind private Freizeitprojekte. Sie werden kostenlos und ohne Gewähr bereitgestellt. Die Nutzung erfolgt auf eigene Verantwortung. Für Schäden an Geräten, Daten oder Software wird keine Haftung übernommen, soweit dies gesetzlich zulässig ist.</p>
+      <p>Es besteht kein Anspruch auf Support, Updates oder dauerhafte Verfügbarkeit der Downloads.</p>
+      <p>Die Projekte stehen in keiner Verbindung zu Bambu Lab, Anthropic, dem Eishockeyverband NRW (EHV NRW) oder den Betreibern des eGrep-Systems. Genannte Marken- und Produktnamen gehören ihren jeweiligen Inhabern und dienen nur der Beschreibung.</p>
+      <p>Für die Inhalte verlinkter externer Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+    </div>
+  </section>
+
   <footer>
     <span>Gebaut von Justus Jonas &amp; <abbr class="mn" title="Michael Nowak">MCHLNWK</abbr></span>
     <div class="links">
-      <span>Impressum <span class="placeholder">folgt</span></span>
-      <span>Datenschutz <span class="placeholder">folgt</span></span>
     </div>
   </footer>
 </div>
