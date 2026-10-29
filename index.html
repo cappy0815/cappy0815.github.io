@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Projekte von cappy0815: BambuWatch, Claude Limits, EHV Live, eGrep Notes und Soundboard.">
+<title>cappy0815 Projekte</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: Eisfläche – schmale Seite, Projekte als Zeilen (Meta links, Text rechts), gruppiert nach Werkstatt / Eishockey; Blau- und Rotlinie als einziges Leitmotiv */
+:root {
+  --ice: #F4F7F9;        /* Grund */
+  --board: #FFFFFF;      /* Flächen */
+  --ink: #121B24;        /* Text */
+  --muted: #56616D;      /* Nebentext */
+  --line: #D9E0E6;       /* Haarlinien */
+  --blue: #1D57B8;       /* Blaulinie, Akzent */
+  --red: #C7362C;        /* Rotlinie, sparsam */
+  --chip: #E7EDF3;
+  --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ice: #0E141A; --board: #151D25; --ink: #E8EDF2; --muted: #9AA6B2;
+    --line: #26313C; --blue: #6FA2F2; --red: #EE6A5F; --chip: #1D2731;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ice: #0E141A; --board: #151D25; --ink: #E8EDF2; --muted: #9AA6B2;
+  --line: #26313C; --blue: #6FA2F2; --red: #EE6A5F; --chip: #1D2731;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--ice);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1000px; margin: 0 auto; }
+a { color: var(--blue); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Kopf */
+header { padding-block: 56px 40px; }
+.handle {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-stretch: 68%;
+  font-size: clamp(3.2rem, 11vw, 6.6rem);
+  line-height: .9;
+  letter-spacing: -.01em;
+  margin: 0;
+}
+.handle span { color: var(--blue); }
+.rink {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+  margin-block: 22px 26px;
+  max-width: 420px;
+}
+.rink i { display: block; height: 4px; border-radius: 2px; background: var(--blue); }
+.rink i:nth-child(2) { background: var(--red); }
+.lede { font-size: 1.15rem; max-width: 60ch; margin: 0; }
+.lede + .lede { color: var(--muted); font-size: 1rem; margin-top: 10px; }
+.top-links { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 22px; font-weight: 500; }
+
+/* ---------- Gruppen */
+section.group { padding-block: 28px; }
+.group-head {
+  display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 8px;
+}
+.group-head h2 {
+  font-family: var(--font-display);
+  font-weight: 800; font-stretch: 80%;
+  font-size: 1.9rem; line-height: 1.1; margin: 0;
+  text-transform: uppercase; letter-spacing: .02em;
+}
+.group-head p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* ---------- Projektzeile */
+.project {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 32px;
+  padding-block: 30px;
+  border-bottom: 1px solid var(--line);
+}
+.project:last-child { border-bottom: 0; }
+.meta { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.meta h3 {
+  font-family: var(--font-display);
+  font-weight: 800; font-stretch: 88%;
+  font-size: 1.75rem; line-height: 1.05; margin: 0;
+  text-wrap: balance;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-family: var(--font-mono); font-size: .78rem;
+  background: var(--chip); color: var(--ink);
+  padding: 2px 8px; border-radius: 3px;
+  font-variant-numeric: tabular-nums;
+}
+.state {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: .85rem; font-weight: 600; color: var(--muted);
+}
+.state::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+.state.hold::before { background: var(--red); }
+
+.body { min-width: 0; }
+.body .what { font-size: 1.08rem; margin: 0 0 12px; max-width: 62ch; }
+.body ul { margin: 0 0 18px; padding-left: 1.1em; max-width: 62ch; color: var(--ink); }
+.body li { margin-block: 4px; }
+.body li::marker { color: var(--blue); }
+.note {
+  font-size: .9rem; color: var(--muted);
+  border-left: 3px solid var(--line);
+  padding: 2px 0 2px 12px; margin: 0 0 18px; max-width: 62ch;
+}
+.note.warn { border-left-color: var(--red); }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 600; font-size: .95rem; text-decoration: none;
+  padding: 9px 16px; border-radius: 6px;
+  background: var(--ink); color: var(--ice);
+}
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
+.btn small { font-weight: 400; font-family: var(--font-mono); font-size: .75rem; opacity: .85; }
+
+/* ---------- Hinweise und Fuß */
+.facts {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  padding-top: 22px;
+}
+.facts h3 { font-size: 1rem; margin: 0 0 6px; font-weight: 600; }
+.facts p { margin: 0; color: var(--muted); font-size: .93rem; }
+footer {
+  margin-top: 40px; padding-block: 28px 48px;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between;
+  color: var(--muted); font-size: .9rem;
+}
+footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.placeholder { font-family: var(--font-mono); font-size: .8rem; background: var(--chip); padding: 1px 6px; border-radius: 3px; color: var(--ink); }
+
+@media (max-width: 760px) {
+  .project { grid-template-columns: 1fr; gap: 16px; }
+  .facts { grid-template-columns: 1fr; gap: 18px; }
+  header { padding-block: 36px 28px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: transform .12s ease; }
+  .btn:not([aria-disabled="true"]):hover { transform: translateY(-1px); }
+}
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1 class="handle">cappy<span>0815</span></h1>
+    <div class="rink" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="lede">Kleine Programme und Apps aus meiner Werkstatt: für den 3D-Drucker, fürs Eishockey und für den Alltag am Rechner. Gebaut zusammen mit Justus Jonas, meinem KI-Assistenten.</p>
+    <p class="lede">Alles privat entstanden, kostenlos und ohne Gewähr. Quellcode und Downloads liegen auf GitHub.</p>
+    <nav class="top-links" aria-label="Profile">
+      <a href="https://github.com/cappy0815" target="_blank" rel="noopener">GitHub · cappy0815</a>
+      <a href="https://instagram.com/cappy0815" target="_blank" rel="noopener">Instagram · @cappy0815</a>
+    </nav>
+  </header>
+
+  <section class="group" aria-labelledby="g-werkstatt">
+    <div class="group-head">
+      <h2 id="g-werkstatt">Werkstatt</h2>
+      <p>Windows-Tools für 3D-Druck und KI</p>
+    </div>
+
+    <article class="project">
+      <div class="meta">
+        <h3>BambuWatch</h3>
+        <div class="chips"><span class="chip">Windows</span><span class="chip">v1.7</span></div>
+        <span class="state">Repo in Vorbereitung</span>
+      </div>
+      <div class="body">
+        <p class="what">Ein kleines, frei skalierbares Fenster mit dem Live-Bild deines Bambu-Lab-Druckers und dem Druckstatus darüber.</p>
+        <ul>
+          <li>Fortschritt, Restzeit, Fertig-Uhrzeit, Schicht, Temperaturen und aktives Filament mit Farbe</li>
+          <li>Mehrere Drucker, umschaltbar per Klick (A1, P1, H2D, X1, P2S)</li>
+          <li>Im Heimnetz direkt, unterwegs über Home Assistant oder die Bambu-Cloud</li>
+          <li>Meldung bei Druckende, Pause oder Abbruch, Fortschritt im Taskleisten-Symbol</li>
+        </ul>
+        <p class="note">Nutzt die von der Community dokumentierte LAN-Schnittstelle. Bambu Lab unterstützt sie nicht offiziell. Kein Bezug zu Bambu Lab.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/cappy0815" target="_blank" rel="noopener">Zu GitHub <small>bambuwatch</small></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="meta">
+        <h3>Claude Limits</h3>
+        <div class="chips"><span class="chip">Windows</span><span class="chip">v1.3.2</span></div>
+        <span class="state">Repo in Vorbereitung</span>
+      </div>
+      <div class="body">
+        <p class="what">Zeigt dein Claude-Nutzungskontingent direkt im Programm-Symbol der Taskleiste: Ring und Prozentzahl in Ampelfarbe.</p>
+        <ul>
+          <li>Session (5 Stunden) und Woche auf einen Blick, mit Countdown bis zum Reset</li>
+          <li>Statistik mit Verlauf, Wochentagen und Tageszeit</li>
+          <li>Daten über die Anmeldung von Claude Code oder aus Home Assistant</li>
+          <li>Kompaktes Fenster, optional immer im Vordergrund</li>
+        </ul>
+        <p class="note">Inoffizielles Tool, keine Verbindung zu Anthropic. Die abgefragte Schnittstelle ist nicht offiziell dokumentiert und kann sich ändern.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/cappy0815" target="_blank" rel="noopener">Zu GitHub <small>claude-limits</small></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" aria-labelledby="g-eishockey">
+    <div class="group-head">
+      <h2 id="g-eishockey">Eishockey</h2>
+      <p>Für Halle, Kabine und Tribüne</p>
+    </div>
+
+    <article class="project">
+      <div class="meta">
+        <h3>EHV Live</h3>
+        <div class="chips"><span class="chip">Windows v3.0.1</span><span class="chip">Android v2.51</span></div>
+        <span class="state hold">Download noch nicht freigegeben</span>
+      </div>
+      <div class="body">
+        <p class="what">Live-Ticker für laufende Spiele im Eishockeyverband NRW: als schwebendes Fenster am PC und als Floating-Anzeige auf dem Handy.</p>
+        <ul>
+          <li>Laufende und heutige Spiele, eigene Teams hervorgehoben</li>
+          <li>Tore und Strafen mit Spielzeit, Vorlagen, Drittelergebnisse</li>
+          <li>Spielplan, Ergebnisse, Tabelle und Aufstellung</li>
+          <li>Torhorn und Pfiff am PC, Vibration und Benachrichtigung am Handy</li>
+        </ul>
+        <p class="note warn">Kein Bezug zum EHV NRW. Nutzt nur öffentlich zugängliche Daten. Der Download folgt erst nach Rücksprache mit dem Verband.</p>
+        <div class="actions">
+          <span class="btn" aria-disabled="true">Download folgt</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="meta">
+        <h3>eGrep Notes</h3>
+        <div class="chips"><span class="chip">Android</span><span class="chip">v2.4</span></div>
+        <span class="state">Repo in Vorbereitung</span>
+      </div>
+      <div class="body">
+        <p class="what">Offline-Spielnotizen fürs Eishockey: alles mitschreiben, was später ins offizielle eGrep muss.</p>
+        <ul>
+          <li>Tore, Strafen und Torwartwechsel mit der abgelesenen Uhrzeit</li>
+          <li>Drei Zeitmodi: Uhr läuft ab, Uhr läuft auf, Spielzeit 0:00 bis 60:00</li>
+          <li>Aufstellung per Foto einlesen (Texterkennung)</li>
+          <li>Strafen mit Schiri-Zeichen, Spielbericht zum Ausdrucken</li>
+        </ul>
+        <p class="note">Private Notiz-App. Kein Bezug zum offiziellen eGrep oder zum Verband.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/cappy0815" target="_blank" rel="noopener">Zu GitHub <small>egrep-notes</small></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="meta">
+        <h3>Soundboard</h3>
+        <div class="chips"><span class="chip">Android · Tablet</span><span class="chip">v0.13.1</span></div>
+        <span class="state">Repo in Vorbereitung</span>
+      </div>
+      <div class="body">
+        <p class="what">Hallen-Soundboard für Heimspiele: große Kacheln fürs Tablet im Querformat, gebaut für die Arbeit am Mischpult.</p>
+        <ul>
+          <li>Frei belegbare Kacheln, z. B. für Torhymne, Hupe und Zamboni-Musik</li>
+          <li>Pro Titel harter Stopp oder Fade, eigener Start- und Endpunkt</li>
+          <li>Automatische Lautstärke-Angleichung, Fader für Titel und Gesamt</li>
+          <li>Taste „Leiser“ für Durchsagen, Fernbedienung (Klicker) anlernbar</li>
+        </ul>
+        <p class="note">Spielt nur eigene Musikdateien ab. Musik ist nicht enthalten.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/cappy0815" target="_blank" rel="noopener">Zu GitHub <small>soundboard</small></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group" aria-labelledby="g-hinweise">
+    <div class="group-head">
+      <h2 id="g-hinweise">Gut zu wissen</h2>
+    </div>
+    <div class="facts">
+      <div>
+        <h3>Windows-Warnung beim Start</h3>
+        <p>Die Programme sind nicht signiert. Windows zeigt deshalb beim ersten Start eine Warnung „unbekannter Herausgeber“. Zu jedem Download gibt es eine Prüfsumme.</p>
+      </div>
+      <div>
+        <h3>Android-Apps</h3>
+        <p>Die Apps gibt es nicht im Play Store, sondern als APK-Datei. Zum Installieren musst du Installationen aus dieser Quelle einmal erlauben.</p>
+      </div>
+      <div>
+        <h3>Ohne Gewähr</h3>
+        <p>Private Projekte ohne Support. Fehler und Wünsche gern als Issue auf GitHub. Marken gehören ihren Inhabern.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Gebaut von Justus Jonas &amp; Michael Nowak</span>
+    <div class="links">
+      <span>Impressum <span class="placeholder">folgt</span></span>
+      <span>Datenschutz <span class="placeholder">folgt</span></span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>
