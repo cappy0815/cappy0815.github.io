@@ -3,11 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Projekte von cappy0815: BambuWatch, Claude Limits, EHV Live, eGrep Notes und Soundboard.">
+<meta name="description" content="Projekte von cappy0815: BambuWatch, Claude Limits, NRW Hockey Liveticker, eGrep Notes und Soundboard.">
+<style>
+@font-face{font-family:"Archivo";src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+body{margin:0}img{max-width:100%}
+</style>
 <title>cappy0815 Projekte</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: Gulf-Livery – dunkle Seite, Projekte als Zeilen (Meta links, Text rechts), gruppiert nach Werkstatt / Eishockey; hellblau-orangener Streifen als einziges Leitmotiv. Bewusst nur dunkel. */
 :root {
@@ -146,6 +152,13 @@ footer {
 footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .placeholder { font-family: var(--font-mono); font-size: .8rem; background: var(--chip); padding: 1px 6px; border-radius: 3px; color: var(--ink); }
 
+abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; letter-spacing: .04em; }
+.toc { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px 24px; }
+.toc li { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding-top: 8px; }
+.toc a { font-weight: 600; text-decoration: none; }
+.toc a:hover { text-decoration: underline; }
+.toc span { color: var(--muted); font-size: .88rem; }
+.project { scroll-margin-top: 16px; }
 @media (max-width: 760px) {
   .project { grid-template-columns: 1fr; gap: 16px; }
   .facts { grid-template-columns: 1fr; gap: 18px; }
@@ -156,7 +169,6 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   .btn:not([aria-disabled="true"]):hover { transform: translateY(-1px); }
 }
 </style>
-<style>body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
 
@@ -164,11 +176,18 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   <header>
     <h1 class="handle">cappy<span>0815</span></h1>
     <div class="rink" aria-hidden="true"><i></i><i></i><i></i></div>
-    <p class="lede">Windows-Tools und Android-Apps rund um 3D-Druck, Eishockey und den Arbeitsalltag am Rechner. Entwickelt von Michael Nowak gemeinsam mit dem KI-Assistenten Justus Jonas.</p>
+    <p class="lede">Windows-Tools und Android-Apps rund um 3D-Druck, Eishockey und den Arbeitsalltag am Rechner. Entwickelt von <abbr class="mn" title="Michael Nowak">MCHLNWK</abbr> gemeinsam mit dem KI-Assistenten Justus Jonas.</p>
     <p class="lede">Private Projekte, kostenlos nutzbar und ohne Gewähr. Quellcode, Versionen und Downloads auf GitHub.</p>
     <nav class="top-links" aria-label="Profile">
       <a href="https://github.com/cappy0815" target="_blank" rel="noopener">GitHub · cappy0815</a>
     </nav>
+    <ul class="toc" aria-label="Übersicht">
+      <li><a href="#bambuwatch">BambuWatch</a><span>Drucker-Livebild</span></li>
+      <li><a href="#claude-limits">Claude Limits</a><span>KI-Kontingent</span></li>
+      <li><a href="#liveticker">NRW Hockey Liveticker</a><span>Live-Ergebnisse</span></li>
+      <li><a href="#egrep-notes">eGrep Notes</a><span>Spielnotizen</span></li>
+      <li><a href="#soundboard">Soundboard</a><span>Hallenmusik</span></li>
+    </ul>
   </header>
 
   <section class="group" aria-labelledby="g-werkstatt">
@@ -177,7 +196,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       <p>Windows-Tools für 3D-Druck und KI</p>
     </div>
 
-    <article class="project">
+    <article class="project" id="bambuwatch">
       <div class="meta">
         <h3>BambuWatch</h3>
         <div class="chips"><span class="chip">Windows</span><span class="chip">v1.7</span></div>
@@ -198,7 +217,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       </div>
     </article>
 
-    <article class="project">
+    <article class="project" id="claude-limits">
       <div class="meta">
         <h3>Claude Limits</h3>
         <div class="chips"><span class="chip">Windows</span><span class="chip">v1.3.2</span></div>
@@ -226,9 +245,9 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       <p>Für Halle, Kabine und Tribüne</p>
     </div>
 
-    <article class="project">
+    <article class="project" id="liveticker">
       <div class="meta">
-        <h3>EHV Live</h3>
+        <h3>NRW Hockey Liveticker</h3>
         <div class="chips"><span class="chip">Windows v3.0.1</span><span class="chip">Android v2.51</span></div>
         <span class="state hold">Download noch nicht freigegeben</span>
       </div>
@@ -240,14 +259,14 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
           <li>Spielplan, Ergebnisse, Tabelle und Aufstellung</li>
           <li>Torhorn und Pfiff am PC, Vibration und Benachrichtigung am Handy</li>
         </ul>
-        <p class="note warn">Kein Bezug zum EHV NRW. Nutzt nur öffentlich zugängliche Daten. Der Download folgt erst nach Rücksprache mit dem Verband.</p>
+        <p class="note warn">Nutzt die öffentlich zugänglichen Spieldaten des Eishockeyverbands NRW (EHV NRW). Kein Bezug zum Verband. Der Download folgt erst nach Rücksprache mit dem Verband.</p>
         <div class="actions">
           <span class="btn" aria-disabled="true">Download folgt</span>
         </div>
       </div>
     </article>
 
-    <article class="project">
+    <article class="project" id="egrep-notes">
       <div class="meta">
         <h3>eGrep Notes</h3>
         <div class="chips"><span class="chip">Android</span><span class="chip">v2.4</span></div>
@@ -268,7 +287,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
       </div>
     </article>
 
-    <article class="project">
+    <article class="project" id="soundboard">
       <div class="meta">
         <h3>Soundboard</h3>
         <div class="chips"><span class="chip">Android · Tablet</span><span class="chip">v0.13.1</span></div>
@@ -311,7 +330,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   </section>
 
   <footer>
-    <span>Gebaut von Justus Jonas &amp; Michael Nowak</span>
+    <span>Gebaut von Justus Jonas &amp; <abbr class="mn" title="Michael Nowak">MCHLNWK</abbr></span>
     <div class="links">
       <span>Impressum <span class="placeholder">folgt</span></span>
       <span>Datenschutz <span class="placeholder">folgt</span></span>
