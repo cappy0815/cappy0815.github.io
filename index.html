@@ -9,30 +9,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: Eisfläche – schmale Seite, Projekte als Zeilen (Meta links, Text rechts), gruppiert nach Werkstatt / Eishockey; Blau- und Rotlinie als einziges Leitmotiv */
+/* Layout: Gulf-Livery – dunkle Seite, Projekte als Zeilen (Meta links, Text rechts), gruppiert nach Werkstatt / Eishockey; hellblau-orangener Streifen als einziges Leitmotiv. Bewusst nur dunkel. */
 :root {
-  --ice: #F4F7F9;        /* Grund */
-  --board: #FFFFFF;      /* Flächen */
-  --ink: #121B24;        /* Text */
-  --muted: #56616D;      /* Nebentext */
-  --line: #D9E0E6;       /* Haarlinien */
-  --blue: #1D57B8;       /* Blaulinie, Akzent */
-  --red: #C7362C;        /* Rotlinie, sparsam */
-  --chip: #E7EDF3;
+  --ice: #0B0D10;        /* Grund, fast schwarz */
+  --board: #14181C;      /* Flächen */
+  --ink: #F4F6F7;        /* Text, weiß */
+  --muted: #A2ADB6;      /* Nebentext */
+  --line: #252B31;       /* Haarlinien */
+  --blue: #8FC9E8;       /* Gulf-Hellblau, Akzent */
+  --red: #F2722B;        /* Gulf-Orange, sparsam */
+  --chip: #1A2127;
   --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: "IBM Plex Sans", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --ice: #0E141A; --board: #151D25; --ink: #E8EDF2; --muted: #9AA6B2;
-    --line: #26313C; --blue: #6FA2F2; --red: #EE6A5F; --chip: #1D2731;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --ice: #0E141A; --board: #151D25; --ink: #E8EDF2; --muted: #9AA6B2;
-  --line: #26313C; --blue: #6FA2F2; --red: #EE6A5F; --chip: #1D2731;
   color-scheme: dark;
 }
 
@@ -60,15 +49,15 @@ header { padding-block: 56px 40px; }
   letter-spacing: -.01em;
   margin: 0;
 }
-.handle span { color: var(--blue); }
+.handle span { color: var(--red); }
 .rink {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 6px;
+  grid-template-columns: 3fr 1fr 3fr;
+  gap: 5px;
   margin-block: 22px 26px;
   max-width: 420px;
 }
-.rink i { display: block; height: 4px; border-radius: 2px; background: var(--blue); }
+.rink i { display: block; height: 6px; border-radius: 1px; background: var(--blue); }
 .rink i:nth-child(2) { background: var(--red); }
 .lede { font-size: 1.15rem; max-width: 60ch; margin: 0; }
 .lede + .lede { color: var(--muted); font-size: 1rem; margin-top: 10px; }
@@ -78,7 +67,7 @@ header { padding-block: 56px 40px; }
 section.group { padding-block: 28px; }
 .group-head {
   display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap;
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 2px solid var(--blue);
   padding-bottom: 8px;
 }
 .group-head h2 {
@@ -135,7 +124,7 @@ section.group { padding-block: 28px; }
   display: inline-flex; align-items: center; gap: 8px;
   font-weight: 600; font-size: .95rem; text-decoration: none;
   padding: 9px 16px; border-radius: 6px;
-  background: var(--ink); color: var(--ice);
+  background: var(--blue); color: var(--ice);
 }
 .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 .btn[aria-disabled="true"] { opacity: .55; cursor: not-allowed; }
@@ -175,11 +164,10 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
   <header>
     <h1 class="handle">cappy<span>0815</span></h1>
     <div class="rink" aria-hidden="true"><i></i><i></i><i></i></div>
-    <p class="lede">Kleine Programme und Apps aus meiner Werkstatt: für den 3D-Drucker, fürs Eishockey und für den Alltag am Rechner. Gebaut zusammen mit Justus Jonas, meinem KI-Assistenten.</p>
-    <p class="lede">Alles privat entstanden, kostenlos und ohne Gewähr. Quellcode und Downloads liegen auf GitHub.</p>
+    <p class="lede">Windows-Tools und Android-Apps rund um 3D-Druck, Eishockey und den Arbeitsalltag am Rechner. Entwickelt von Michael Nowak gemeinsam mit dem KI-Assistenten Justus Jonas.</p>
+    <p class="lede">Private Projekte, kostenlos nutzbar und ohne Gewähr. Quellcode, Versionen und Downloads auf GitHub.</p>
     <nav class="top-links" aria-label="Profile">
       <a href="https://github.com/cappy0815" target="_blank" rel="noopener">GitHub · cappy0815</a>
-      <a href="https://instagram.com/cappy0815" target="_blank" rel="noopener">Instagram · @cappy0815</a>
     </nav>
   </header>
 
