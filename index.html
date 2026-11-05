@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Projekte von cappy0815: BambuWatch, Claude Limits, NRW Hockey Liveticker, eGrep Notes und Soundboard.">
+<meta name="description" content="Projekte von cappy0815: BambuWatch, Claude Limits, Charge Monitor, Player, NRW Hockey Liveticker, eGrep Notes und Soundboard.">
 <style>
 @font-face{font-family:"Archivo";src:url(fonts/archivo-latin-wdth-normal.woff2) format("woff2");font-weight:100 900;font-stretch:62% 125%;font-display:swap}
 @font-face{font-family:"IBM Plex Sans";src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
@@ -154,7 +154,7 @@ footer .links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 
 abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor: help; letter-spacing: .04em; }
 .toc { list-style: none; padding: 0; margin: 26px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 24px; max-width: 760px; }
-.toc li.g-druck { grid-row: 1; grid-column: 1; } .toc li.g-handy { grid-row: 1; grid-column: 2; } .toc li.g-ai { grid-row: 2; grid-column: 1; } .toc li.g-hockey { grid-row: 3; }
+.toc li.g-druck { grid-row: 1; grid-column: 1; } .toc li.g-handy { grid-row: 1; grid-column: 2; } .toc li.g-handy.r2 { grid-row: 2; } .toc li.g-ai { grid-row: 2; grid-column: 1; } .toc li.g-hockey { grid-row: 3; }
 @media (max-width: 560px) { .toc { grid-template-columns: 1fr; } .toc li[class*="g-"] { grid-row: auto; } }
 .legal { max-width: 70ch; color: var(--muted); font-size: .93rem; padding-top: 18px; }
 .legal p { margin: 0 0 10px; }
@@ -196,6 +196,7 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
       <li class="g-druck"><a href="#bambuwatch">BambuWatch</a><span>3D-Druck · Drucker-Livebild</span></li>
       <li class="g-ai"><a href="#claude-limits">Claude Limits</a><span>AI · KI-Kontingent</span></li>
       <li class="g-handy"><a href="#charge-monitor">Charge Monitor</a><span>Handy · Ladeleistung</span></li>
+      <li class="g-handy r2"><a href="#player">Player</a><span>Handy · Musik &amp; Lyrics</span></li>
       <li class="g-hockey"><a href="#liveticker">NRW Hockey Liveticker</a><span>Eishockey · Live-Ergebnisse</span></li>
       <li class="g-hockey"><a href="#egrep-notes">eGrep Notes</a><span>Eishockey · Spielnotizen</span></li>
       <li class="g-hockey"><a href="#soundboard">Soundboard</a><span>Eishockey · Hallenmusik</span></li>
@@ -265,7 +266,7 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
   <section class="group g-handy" aria-labelledby="g-handy">
     <div class="group-head">
       <h2 id="g-handy">Handy</h2>
-      <p>Android-App für den Alltag</p>
+      <p>Android-Apps für den Alltag</p>
     </div>
 
     <article class="project" id="charge-monitor">
@@ -285,6 +286,28 @@ abbr.mn { text-decoration: none; border-bottom: 1px dotted var(--muted); cursor:
         <p class="note">Angezeigt wird die Leistung, die im Akku ankommt. Die Werte stammen aus der Akku-Schnittstelle von Android und sind nicht kalibriert.</p>
         <div class="actions">
           <a class="btn" href="https://github.com/cappy0815/ChargeMonitor" target="_blank" rel="noopener">Zu GitHub <small>ChargeMonitor</small></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project" id="player">
+      <div class="meta">
+        <h3>Player</h3>
+        <div class="chips"><span class="chip">Android</span><span class="chip">v0.3.1</span></div>
+        <span class="state">Download verfügbar</span>
+      </div>
+      <div class="body">
+        <p class="what">MP3-Player für die eigene Musik auf dem Handy, mit Tag-Editor, Online-Abgleich und großen, mitlaufenden Lyrics.</p>
+        <ul>
+          <li>Bibliothek nach Titeln, Alben, Interpreten, Ordnern und Playlists, Wechsel per Wischen</li>
+          <li>Tags und Cover direkt in der MP3 bearbeiten, Abgleich mit MusicBrainz für einzelne Titel oder ganze Ordner</li>
+          <li>Lyrics automatisch über LRCLIB, die aktuelle Zeile wird beim Abspielen hervorgehoben</li>
+          <li>Lyrics-Vollbild in großer Schrift, gedimmt und auch über dem Sperrbildschirm</li>
+        </ul>
+        <p class="note">Abgleich und Lyrics-Suche laufen nur auf Knopfdruck. Dabei gehen Titel, Interpret, Album und Länge an MusicBrainz, Cover Art Archive und LRCLIB. Zum Speichern von Tags braucht die App „Zugriff auf alle Dateien“.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/cappy0815/player/releases/download/v0.3.1/Player-v0.3.1.apk">APK herunterladen <small>v0.3.1</small></a>
+          <a class="btn ghost" href="https://github.com/cappy0815/player" target="_blank" rel="noopener">Quellcode auf GitHub</a>
         </div>
       </div>
     </article>
