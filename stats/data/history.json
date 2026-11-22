@@ -1,1 +1,55 @@
-{}
+{
+ "releases": {
+  "ChargeMonitor": {
+   "ChargeMonitor-v1.4.apk": {
+    "snap": {
+     "2026-11-22": 1
+    },
+    "tag": "v1.4"
+   }
+  },
+  "ClaudeLimits": {
+   "Claude_Limits_v1.4.1.exe": {
+    "snap": {
+     "2026-11-22": 2
+    },
+    "tag": "v1.4.1"
+   }
+  },
+  "NRW_Hockey_LiveTicker": {
+   "EHV-Live-v2.51.apk": {
+    "snap": {
+     "2026-11-22": 2
+    },
+    "tag": "WIN_v3.0.1_APK_v2.51"
+   },
+   "EHV_NRW_LiveTicker_v3.0.1.exe": {
+    "snap": {
+     "2026-11-22": 3
+    },
+    "tag": "WIN_v3.0.1_APK_v2.51"
+   }
+  },
+  "player": {
+   "Player-v0.3.1.apk": {
+    "snap": {
+     "2026-11-22": 3
+    },
+    "tag": "v0.3.1"
+   }
+  },
+  "soundboard": {
+   "Soundboard-v0.13.1.apk": {
+    "snap": {
+     "2026-11-22": 3
+    },
+    "tag": "v0.13.1"
+   }
+  }
+ },
+ "site": {
+  "events": {},
+  "pages": {}
+ },
+ "updated": "2026-11-22T11:22:10Z"
+}
