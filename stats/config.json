@@ -1,0 +1,26 @@
+{
+  "owner": "cappy0815",
+  "goatcounter_code": "cappy0815",
+  "goatcounter_days_back": 10,
+  "mail_to": "cappy0815@googlemail.com",
+  "stats_url": "https://cappy0815.github.io/stats/",
+  "repos": [
+    "cappy0815.github.io",
+    "NEV-Daily",
+    "BambuWatch",
+    "ClaudeLimits",
+    "ChargeMonitor",
+    "player",
+    "spymon",
+    "NRW_Hockey_LiveTicker",
+    "eGrepNotes",
+    "soundboard",
+    "NEV-Plan"
+  ],
+  "page_names": {
+    "/": "Landingpage",
+    "/NEV-Daily/": "NEV-Daily",
+    "/nev-daily/": "NEV-Daily (alter Link)",
+    "/stammbaum/": "Stammbaum"
+  }
+}
