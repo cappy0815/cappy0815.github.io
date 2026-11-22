@@ -49,7 +49,60 @@
  },
  "site": {
   "events": {},
-  "pages": {}
+  "pages": {
+   "/": {
+    "2026-11-22": 1
+   },
+   "/NEV-Daily": {
+    "2026-11-22": 2
+   }
+  }
  },
- "updated": "2026-11-22T11:22:10Z"
+ "traffic": {
+  "BambuWatch": {
+   "clones": {},
+   "views": {}
+  },
+  "ChargeMonitor": {
+   "clones": {},
+   "views": {}
+  },
+  "ClaudeLimits": {
+   "clones": {},
+   "views": {}
+  },
+  "NEV-Daily": {
+   "clones": {},
+   "views": {}
+  },
+  "NEV-Plan": {
+   "clones": {},
+   "views": {}
+  },
+  "NRW_Hockey_LiveTicker": {
+   "clones": {},
+   "views": {}
+  },
+  "cappy0815.github.io": {
+   "clones": {},
+   "views": {}
+  },
+  "eGrepNotes": {
+   "clones": {},
+   "views": {}
+  },
+  "player": {
+   "clones": {},
+   "views": {}
+  },
+  "soundboard": {
+   "clones": {},
+   "views": {}
+  },
+  "spymon": {
+   "clones": {},
+   "views": {}
+  }
+ },
+ "updated": "2026-11-22T13:47:05Z"
 }
