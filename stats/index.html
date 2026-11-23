@@ -93,7 +93,7 @@ tr.app.open td:first-child::before{content:"▾ "}
 <script>
 (function(){
 var RAW='https://raw.githubusercontent.com/cappy0815/cappy0815.github.io/main/stats/data/history.json';
-var NAMES={"/":"Landingpage","/NEV-Daily/":"NEV-Daily","/nev-daily/":"NEV-Daily (alter Link)","/stammbaum/":"Stammbaum"};
+var NAMES={"/":"Landingpage","/NEV-Daily":"NEV-Daily","/NEV-Daily/":"NEV-Daily","/nev-daily/":"NEV-Daily (alter Link)","/stammbaum/":"Stammbaum"};
 var H=null, RANGE=30;
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function iso(d){return d.toISOString().slice(0,10)}

@@ -19,6 +19,7 @@
   ],
   "page_names": {
     "/": "Landingpage",
+    "/NEV-Daily": "NEV-Daily",
     "/NEV-Daily/": "NEV-Daily",
     "/nev-daily/": "NEV-Daily (alter Link)",
     "/stammbaum/": "Stammbaum"
